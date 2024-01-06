@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+void check(int num)
+{
+    int data[num+1];
+    if(num<=1)
+    {
+        cerr<<"Error: 1 is not a prime number:";
+    }
+    else
+    {
+        for(int i=1;i<=num;i++)
+        {
+            if(num%i==0)
+            {
+                data[i]=i;
+            }
+        }
+    }
+    //output
+    for(int p=1;p<=num;p++)
+    {
+        cout<<"\t"<<"data["<<p<<"]"<<"="<<data[p]<<endl;
+    }
+}
+int main()
+{
+    int num;
+    cout<<"enter num to find, is it prime?";
+    cin>>num;
+    check(num);
+    return 0;
+}
