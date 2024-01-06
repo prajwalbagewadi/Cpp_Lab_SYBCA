@@ -14,6 +14,14 @@ void check(int num)
             if(num%i==0)
             {
                 data[i]=i;
+                for(int j=2;j<num;j++)
+                {
+                    if(data[j]>=1)
+                    {
+                        cout<<"num:"<<num<<"is"<<"not a prime num";
+                        break;
+                    }
+                }
             }
         }
     }
