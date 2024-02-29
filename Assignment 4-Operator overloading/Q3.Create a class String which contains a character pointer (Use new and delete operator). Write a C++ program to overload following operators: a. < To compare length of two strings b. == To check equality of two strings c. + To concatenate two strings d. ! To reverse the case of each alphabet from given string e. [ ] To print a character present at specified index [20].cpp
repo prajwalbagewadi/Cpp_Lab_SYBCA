@@ -44,10 +44,14 @@ class String{
         int len1=strlen(this->ptr1);
         int len2=strlen(obj.ptr1);
         char *result=new char[len1+len2+1];
+        //copy the contents of this->ptr1 to result
         strcpy(result,this->ptr1);
+        //concat the contents of obj.ptr1 to result
         strcat(result,obj.ptr1);
         String res(result);
         //cout<<result;
+        cout<<"deallocating result char array:"<<endl;
+        delete[] result;
         return res;
     }
     //operator overload !
@@ -55,27 +59,40 @@ class String{
         cout<<"!in operator"<<endl;
         cout<<"len of char*="<<strlen(this->ptr1)<<endl;
         char c;
-        string temp;
+        char *temp=new char[strlen(this->ptr1)+1];
         int i=0;
         while(i<strlen(this->ptr1)){
             cout<<"char before="<<this->ptr1[i]<<endl;
             if(isalpha(this->ptr1[i])){
                 c=isupper(this->ptr1[i])?tolower(this->ptr1[i]):toupper(this->ptr1[i]);
                 cout<<"char after="<<c<<endl;    
-                temp+=c;
+                temp[i]+=c;
             }
             else{
                cout<<"char after="<<c<<endl; 
-               temp+=c;
+               temp[i]+=c;
             }
             i++;
         }
-        cout<<endl<<temp<<endl;;
+        cout<<endl<<temp<<endl;
+        cout<<"deallocating temp char array:"<<endl;
+        delete[] temp;
     }
-    //operator overload []
+    //operator overload [] (subscript operator)
     void operator [](int n){
         cout<<"char at specified indice="<<this->ptr1[n]<<endl;
     }
+    //destructor
+    // ~String(){
+    //     cout<<"Destructor invoked:"<<endl;
+    //     cout<<"deallocating char array ptr1:"<<endl;
+    //     delete[] ptr1;
+    // }
+    /*
+        This “Munmap_Chunk(): Invalid Pointer” error mainly occurs due to syntax error or when the array syntax is wrong. 
+        Moreover, it also happens when the wrong memory with malloc is written. 
+        Undefined behavior of the code also results in this error.
+    */
 };
 int main(){
     String obj1("PRIYA");
@@ -97,5 +114,7 @@ int main(){
     //e. [ ] To print a character present at specified index [20]
     cout<<endl<<"e. [ ] To print a character present at specified index [20]"<<endl;
     obj1[2];
+    // obj1.~String();
+    // obj2.~String();
     return 0;
 }
