@@ -8,7 +8,10 @@ class interchange{
     public:
         void swap(int *a,int *b){
             int temp;
+            cout<<"val in *a="<<*a<<"val in a="<<a<<endl;
             temp=*a;
+            cout<<"val in temp="<<temp<<endl;
+            cout<<"val in *b="<<*b<<"val in b="<<b<<endl;
             *a=*b;
             *b=temp;
         }
