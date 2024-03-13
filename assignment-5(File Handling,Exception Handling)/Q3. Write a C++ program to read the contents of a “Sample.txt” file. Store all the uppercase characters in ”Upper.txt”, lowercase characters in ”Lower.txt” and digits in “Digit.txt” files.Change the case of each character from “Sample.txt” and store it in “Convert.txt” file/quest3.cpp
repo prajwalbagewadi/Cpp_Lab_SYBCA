@@ -34,5 +34,10 @@ int main(){
         }
     }
     
+    read_obj.close();
+    write_obj.close();
+    write_obj1.close();
+    write_obj2.close();
+    write_obj3.close();
     return 0;
 }
