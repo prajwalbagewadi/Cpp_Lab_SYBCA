@@ -42,5 +42,6 @@ int main(){
     cout<<endl<<"number of lines:"<<lines<<endl;
     cout<<endl<<"number of words:"<<words<<endl;
     cout<<endl<<"number of chars:"<<chars<<endl;
+    obj_read.close();
     return 0;
 }
