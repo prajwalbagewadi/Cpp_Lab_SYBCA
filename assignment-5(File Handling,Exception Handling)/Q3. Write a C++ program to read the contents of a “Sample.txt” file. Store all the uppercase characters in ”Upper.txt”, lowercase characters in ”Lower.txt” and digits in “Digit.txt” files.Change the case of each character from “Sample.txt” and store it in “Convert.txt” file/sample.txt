@@ -1,0 +1,3 @@
+Hello World! 123
+This is a Sample Text File.
+It contains some UPPERCASE, lowercase, and 12345 digits.
