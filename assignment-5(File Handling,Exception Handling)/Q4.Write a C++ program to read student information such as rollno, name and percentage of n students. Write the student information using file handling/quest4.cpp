@@ -54,5 +54,6 @@ int main(){
             class_obj[i].read_file(readfile);
         }
 
+    writefile.close();
     return 0;
 }
