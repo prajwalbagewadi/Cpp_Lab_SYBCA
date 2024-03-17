@@ -16,30 +16,32 @@ class emp{
         int emp_id;
         string emp_name;
         float emp_sal;
-    
+
     public:
         void accept(){
             cout<<"enter emp id,name,sal:";
-            cin>>emp_id>>emp_name>>emp_sal;
+            cin>>this->emp_id>>this->emp_name>>this->emp_sal;
         }
 
         void write_to_file(ofstream &file_obj){
-            file_obj<<emp_id<<emp_name<<emp_sal;
+            file_obj<<this->emp_id<<endl;
+            file_obj<<this->emp_name<<endl;
+            file_obj<<this->emp_sal<<endl;
         }
 
         void read_from_file(ifstream &file_obj){
-            file_obj>>emp_id>>emp_name>>emp_sal;
-            cout<<" emp_id:"<<emp_id<<" emp_name:"<<emp_name<<" emp_sal:"<<emp_sal<<endl;
+            file_obj>>this->emp_id>>this->emp_name>>this->emp_sal;
+            cout<<" emp_id:"<<this->emp_id<<" emp_name:"<<this->emp_name<<" emp_sal:"<<this->emp_sal<<endl;
         }
 };
 
 int main(){
 
     //ofstream objects to write file
-        ofstream writeobj("emp1.txt",ios::app);
+        ofstream writeobj("emp2.txt",ios::out|ios::app);
     
     //ifstream objects to write file
-        ifstream readobj("emp1.txt");
+        ifstream readobj("emp2.txt");
 
     int n=3,count=0;
     emp class_obj[n];
