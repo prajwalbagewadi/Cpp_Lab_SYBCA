@@ -24,7 +24,9 @@ class stud{
        
         void write_file(ofstream &file_w_obj){
             cout<<"obj_writing"<<endl;
-            file_w_obj<<rollno<<name<<percentage;
+            file_w_obj<<rollno<<endl;
+            file_w_obj<<name<<endl;
+            file_w_obj<<percentage<<endl;
         }
 
         void read_file(ifstream &file_r_obj){
