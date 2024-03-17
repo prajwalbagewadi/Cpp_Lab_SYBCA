@@ -1,0 +1,47 @@
+/*
+Exception Handling:
+Q1.Write a c++ program to illustrate exception handling mechanism.
+*/ 
+#include<iostream>
+#include<string>
+#include<exception>
+using namespace std;
+
+void div_fun(int dividend,int divisor){
+    int div=dividend/divisor;
+    cout<<"div="<<div<<endl;
+}
+
+int main(){
+    int n=3;
+    int divisor=2;
+    int dividend[n];
+
+
+    try{
+        for(int i=0;i<=n;i++){
+            cout<<"enter dividend:";
+            cin>>dividend[i];
+            if(dividend[i]==0){
+                throw string("dividend cannot be zero");
+            }
+            else if(i==n){
+                throw(n);
+            }
+            else{
+                div_fun(dividend[i],divisor);
+            }
+        }
+        
+    }
+    catch(string &e){
+        cout<<e<<endl;
+    }
+    catch(int e){
+        cout<<"N:"<<n<<"array out of bound:";
+    }
+    catch(...){
+        cout<<"unknow exception";
+    }
+    return 0;
+}
